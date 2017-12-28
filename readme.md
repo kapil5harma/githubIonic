@@ -1,2 +1,2 @@
-tarted tutorial.
+Started tutorial.
 
