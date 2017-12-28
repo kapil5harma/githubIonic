@@ -7,7 +7,9 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { UsersPage } from '../pages/users/users';
+import { ReposPage } from '../pages/repos/repos';
+import { OrganisationsPage } from '../pages/organisations/organisations';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,22 +17,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  // make UsersPage the root (or first) page
+  rootPage: any = UsersPage;
   pages: Array<{title: string, component: any}>;
 
-  constructor(
-    public platform: Platform,
-    public menu: MenuController,
-    public statusBar: StatusBar,
-    public splashScreen: SplashScreen
-  ) {
+  constructor(public platform: Platform,  public menu: MenuController, public statusbar: StatusBar) {
     this.initializeApp();
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'Users', component: UsersPage },
+      { title: 'Repos', component: ReposPage },
+      { title: 'Organisations', component: OrganisationsPage },      
     ];
   }
 
@@ -38,8 +36,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      this.statusbar.styleDefault();
     });
   }
 
